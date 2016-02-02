@@ -1,4 +1,4 @@
 ---
 
-- name: ansible-city.java
+- src: ansible-city.java
   version: v1.0

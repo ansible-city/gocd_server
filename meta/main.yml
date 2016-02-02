@@ -8,13 +8,14 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - all
+        - precise
+        - trusty
   categories:
     - development
     - cd
 
 dependencies:
-  - name: ansible-city.java
+  - role: ansible-city.java
     version: v1.0
     tags:
       - build
