@@ -26,9 +26,9 @@ script:
   # Install Role Dependencies
   - make test_deps
   # Check the role/playbook's syntax.
-  - ansible-playbook --syntax-check --list-tasks -i tests/vagrant/inventory tests/vagrant/test.yml
+  - ansible-playbook --syntax-check --list-tasks -i tests/inventory tests/test.yml
   # First run
-  - cd tests/vagrant/
+  - cd tests/
   # Test the "build" stage
   - ansible-playbook -i inventory test.yml --tags=build --connection=local
   - >
@@ -43,3 +43,6 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
