@@ -38,7 +38,7 @@ To install this role run `ansible-galaxy install ansible-city.gocd_server`
 or add this to your `roles.yml`
 
 ```YAML
-- name: ansible-city.gocd_server
+- src: ansible-city.gocd_server
   version: v1.0
 ```
 
@@ -73,7 +73,7 @@ To simply install GO CD server:
         - build
 
   roles:
-    - name: ansible-city.gocd_server
+    - role: ansible-city.gocd_server
 ```
 
 A bit more advanced playbook to install on a box with more then 4GB ram:
@@ -113,8 +113,8 @@ A bit more advanced playbook to install on a box with more then 4GB ram:
         - build
 
   roles:
-    - name: my-own.java
-    - name: ansible-city.gocd_server
+    - role: my-own.java
+    - role: ansible-city.gocd_server
       gocd_server:
         dependencies:
           skip_java: yes
@@ -135,7 +135,7 @@ To **generate passwd file** you have to specify a dictionary of
         - build
 
   roles:
-    - name: ansible-city.gocd_server
+    - role: ansible-city.gocd_server
       gocd_server:
         passwd_users:
           test.user: "{SHA}iCKdyZxzuc4lU6CCoqsp4H99608="
